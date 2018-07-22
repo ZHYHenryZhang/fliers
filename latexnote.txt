@@ -1,0 +1,28 @@
+font size
+\tiny
+\scriptsize
+\footnotesize
+\small
+\normalsize
+\large
+\Large
+\LARGE
+\huge
+\Huge
+
+
+http://blog.sina.com.cn/s/blog_5e16f1770100lqn7.html
+\usepackage{titlesec}
+\titleformat{command}[shape]{format}{label}{sep}{before}[after]
+e.g.:
+\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
+\titleformat{\chapter}[display]{\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
+
+
+\vspace{3ex}
+
+$\sim$ for ~
+
+
+
+
