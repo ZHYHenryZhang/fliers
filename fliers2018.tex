@@ -54,18 +54,76 @@
 \usepackage{setspace}
 \usepackage{amssymb}
 \usepackage{wasysym}
-\begin{document}
+\usepackage{type1cm}
 
-\title{南京大学工程管理学院\\自动化类\\2018飞跃手册\\预览版本}
-\author{18 Fliers}
-\maketitle % necessary for title
+\begin{document}
+% command to provide stretchy vertical space in proportion
+\newcommand\nbvspace[1][3]{\vspace*{\stretch{#1}}}
+% allow some slack to avoid under/overfull boxes
+\newcommand\nbstretchyspace{\spaceskip0.5em plus 0.25em minus 0.25em}
+% To improve spacing on titlepages
+\newcommand{\nbtitlestretch}{\spaceskip0.8em}
+\pagestyle{empty}
+\begin{center}
+\bfseries
+\nbvspace[1]
+\Huge
+{\nbtitlestretch
+\fontsize{63pt}{18pt}\selectfont
+NJU SME\\
+\nbvspace[0.1]
+\fontsize{40pt}{30pt}\selectfont
+AUTOMATION\\
+\nbvspace[0.1]
+% 18\\
+% \nbvspace[0.1]
+\fontsize{40pt}{18pt}\selectfont
+18飞跃手册}
+
+\nbvspace[0.5]
+\fontsize{14pt}{18pt}\selectfont
+---谨以此册献给那些曾经帮助我们一路走来的人们
+
+\nbvspace[1]
+% \small by\\
+% \Large 18 Fliers\\[0.5em]
+% \footnotesize AUTHOR OF ``A WORKING ALGEBRA,'' ``WIRELESS TELEGRAPHY,\\
+% ITS HISTORY, THEORY AND PRACTICE,'' ETC., ETC.
+
+
+
+\includegraphics[width=11cm]{NJUSMEsmall.png}
+% \nbvspace[2]
+\nbvspace[0.5]
+\normalsize
+
+% DOHA\\
+% \large
+% PUBLISHED IN THE WILD
+% \nbvspace[1]
+\end{center}
+% \textbf{南京大学工程管理学院\\自动化类\\2018飞跃手册}\\预览版本
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.5\textwidth, height=0.32\textwidth]{kanpeila.png}
+% 	\caption{傍晚5点的堪培拉街道}
+% 	\label{kanpeila}
+% \end{figure}
+%\nbvspace[3]
+%\centerline{\includegraphics[width=11cm]{NJUSMEsmall.png}}
+
+% \author{18 Fliers}
+
+
+
+%\maketitle % necessary for title
 
 \tableofcontents %目录
 
 \chapter{前言}
 \begin{spacing}{1.5}
 \paragraph[indent=0pt]{}18飞跃手册分为两个部分，留学经历分享和18届申请总结。
-\paragraph{}第一部分中非常荣幸能够邀请到已经在国外经历了一段留学时光的学长学姐们和我们分享留学经验。学长学姐们介绍了自己的学校专业的就读体验，科研实习经历和未来的打算。并对留学各地的对比，自动化类的留学状况和他们就读专业的前景发表了自己的看法。看看和我们同样从南大工管出发去往世界各地，带着不同想法，经历过各式各样生活的学长学姐们写下的肺腑之言，也许对于还在犹豫是否要出国，下定决心了还没有方向，或者是在准备中仍有迷茫的学弟学妹们有一些帮助。
+\paragraph{}第一部分中非常荣幸能够邀请到已经在国外经历了一段留学时光的学长学姐们和我们分享留学经验。学长学姐们介绍了自己的学校专业的就读体验，科研实习经历和未来的打算。并对留学各地的对比，自动化类（自动化、光电信息工程）的留学状况和他们就读专业的前景发表了自己的看法。看看和我们同样从南大工管出发去往世界各地，带着不同想法，经历过各式各样生活的学长学姐们写下的肺腑之言，也许对于还在犹豫是否要出国，下定决心了还没有方向，或者是在准备中仍有迷茫的学弟学妹们有一些帮助。
 \paragraph{}第二部分是18飞友们对刚刚过去的申请季的总结。格式参考了一亩三分地的定位板块并给出了申请结果，为学弟学妹们提供定位参考。申请准备部分是大一到大三期间为了出国需要做的准备，包括课程学期、科研实习交换和英语准备。申请过程部分对选校，文书，推荐信，网申这些申请中重要的部分均有所涉及。
 \paragraph{}我们得到了来自小百合传承的飞跃手册的帮助，得到了一亩三分地的分享，得到了学长学姐的指引，也想用这样的方式来传递这种善意。
 \end{spacing}
@@ -337,7 +395,7 @@
 \subsection{周罗伟(Robotics, Ph.D.@UMich)}
     \textbf{留学教育背景：}UMich, Robotics Ph.D., 2015\\
     \textbf{联系方式：}zhouluoweiwest@gmail.com\\
-    \textbf{个人主页：}url{https://luoweizhou.net}
+    \textbf{个人主页：}\url{http://luoweizhou.net}
 
     \subsubsection*{在University of Michigan读Robotics是怎样的体验?}
     我所选的课程基本是和机器视觉（CV）和机器学习（ML）相关的。机器人系（RI）第一年课程压力比较大，尤其是必修的实验课ROB550，科研时间很少。建议前两学期把专业知识学扎实，第一年暑假开始多做科研。CV和ML的课程在EECS系下面，RI的选课优先级比EECS稍低一点，但选上课还是没啥压力。安娜堡是大学城，留学生多，饮食方面各国菜系都有。娱乐方面和国内没法比哈，毕竟中部大农村。
