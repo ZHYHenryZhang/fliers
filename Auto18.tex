@@ -3,9 +3,13 @@
 \setCJKmainfont[BoldFont=KaiTi]{STSong} %设置中文默认字体
 \setmainfont{Times New Roman}
 \usepackage[margin=1.25in]{geometry}
+
+
+
 \usepackage{color}
 
 \usepackage{titlesec}
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{0.5em}{}
 \titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0em}{}
 \usepackage{enumitem}
@@ -29,6 +33,7 @@
 % To improve spacing on titlepages
 \newcommand{\nbtitlestretch}{\spaceskip0.8em}
 \pagestyle{empty}
+\fancyhf{}
 % \thispagestyle{empty}%目录页不显示页码
 \begin{center}
 \bfseries
@@ -64,25 +69,28 @@ AUTOMATION\\
 \end{center}
 
 
-\newpage
+% \newpage
+\cleardoublepage
+\begingroup
+  \makeatletter
+  \let\ps@plain\ps@empty
+  \tableofcontents %目录
+\endgroup
 
-\thispagestyle{empty}%目录页不显示页码
-\tableofcontents %目录
-\pagestyle{empty}
-\thispagestyle{empty}%目录页不显示页码
+% \thispagestyle{empty}%目录页不显示页码
 
 \newpage
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[EL,OR]{\subsectionmark}
 \fancyfoot[EC,OC]{\thepage}
-\fancyhead[ER,OL]{\nouppercase{\leftmark}-\nouppercase{\rightmark}}
+\fancyhead[ER,OL]{\nouppercase{\leftmark} \nouppercase{\rightmark}}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \setcounter{page}{1}%从下面开始编页码
 
 \chapter{前言}
-
+\thispagestyle{fancy}
 {\begin{spacing}{1.5}
 \fontsize{12pt}{12pt}\selectfont
 {\CJKfontspec{KaiTi}
@@ -99,7 +107,16 @@ AUTOMATION\\
 
 \clearpage
 
+
 \chapter{留学经历分享}  %document class book required
+\thispagestyle{empty}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[EL,OR]{\subsectionmark}
+\fancyfoot[EC,OC]{\thepage}
+\fancyhead[ER,OL]{\nouppercase{\leftmark}---\nouppercase{\rightmark}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \clearpage
 \section{美国篇}
 \subsection{付国峪(CE, Ph.D.@TAMU)}
@@ -186,7 +203,7 @@ AUTOMATION\\
 \clearpage
 \subsection{岳翔宇(EE, MS@Stanford; EECS, Ph.D.@UCB)}
     \textbf{留学教育背景：}Stanford EE MS, 2014，UC Berkeley EECS Ph.D. 2016\\
-    \textbf{联系方式：}微信：yuexiangyu618，邮箱: xyyue@eecs.berkeley.edu
+    \textbf{联系方式：}WeChat: yuexiangyu618$\quad$Email: xyyue@eecs.berkeley.edu
 
     \subsubsection*{在UCB读EECS是怎样的体验?}
         \begin{enumerate}[itemindent=0pt,itemsep=0pt,parsep=0pt]
@@ -238,7 +255,7 @@ AUTOMATION\\
 \clearpage
 \subsection{羌哲诚(IE, Ph.D.@UCF)}
     \textbf{留学教育背景：}University of Central Florida,工业工程，2017Spring\\
-    \textbf{联系方式：}微信名：云君
+    \textbf{联系方式：}微信名: 云君
 
     \subsubsection*{在University of Central Florida读工业工程是怎样的体验?}
     在ucf课程还比较简单，主要时间用来做科研，生活的话在奥兰多还是很舒服的，气候好，玩的地方比较多，吃的也不错。
@@ -399,7 +416,7 @@ AUTOMATION\\
 \clearpage
 \subsection{倪慧佳(Marketing, MS@Columbia University)}
     \textbf{留学教育背景：}Columbia University, MS in Marketing, 2015\\
-    \textbf{联系方式：}WeChat:giraffe1122334
+    \textbf{联系方式：}WeChat: giraffe1122334
 
     \subsubsection*{在Columbia University读Marketing是怎样的体验?}
     哥大的市场营销硕士是哥大商学院唯二的硕士项目之一，而且program比较小，全球仅招十几人。好处是除了本身专业的必修课之外，商院内MBA和Ph.D.的课可以随便选择，所以读一个硕士，可以同时感受三种生活。毕业不是光修完课程就可以，还需要写一篇高质量的毕业论文，整体压力很大。
@@ -631,7 +648,7 @@ AUTOMATION\\
 \clearpage
 \subsection{张艺川(CS, MS@NEU)}
     \textbf{留学教育背景：}Northeastern University（US），Computer Science，2016 Spring\\
-    \textbf{联系方式：}Wechat : zyc\_nju  邮箱：yczneu@gmail.com
+    \textbf{联系方式：}WeChat: zyc\_nju$\quad$Email: yczneu@gmail.com
 
     \subsubsection*{在NEU读CS是怎样的体验?}
     课程内容多，作业和project多。不仅不能缺席任何一堂课，而且还需要课后自己阅读和练习。有的课程需要和其他同学一起做项目，要求有基本的英语沟通能力。硕士一般一周2到3门课，作业用时20到30小时每周。如果有兴趣可以去旁听其他老师的课，旁听不需要缴费，课程资源一般在Piazza这种公开的网站上，老师会每次更新每周的内容。不懂的问题需要及时向助教（TA）提问，或者自己stackoverflow上解决。一般一门课开始前几周的runtime environment setup费时费力，需要耐心。代码提交的时候TA可能会code review，一般非常严格。期末一般会有project或者考试，不过基本不难。成绩一般分为A，A-，B+，B等等，A一般前5\%还是稍微有难度。不管考试准备如何，不要有任何作弊的行为。\\
@@ -837,7 +854,7 @@ AUTOMATION\\
 \clearpage
 \subsection{王煜烨(BME, Ph.D.@CUHK)}
     \textbf{留学教育背景：}香港中文大学，生物工程方向，2017年\\
-    \textbf{联系方式：}微信：PermanentYY
+    \textbf{联系方式：}WeChat: PermanentYY
 
     \subsubsection*{在香港中文大学读生物工程是怎样的体验?}
     整体的氛围非常轻松和自由。课程完全都是由自己选择，也可以跨专业选课，都非常方便。科研上主要看老板的性格和要求等等，像我们组的话就非常轻松了，老板不push，所以大多数时间都是自己看着办吧hhh. 我个人生活上也很ok, 很幸运地申到了单人间，唯一要吐槽的就是吃的不太好。
@@ -893,7 +910,7 @@ AUTOMATION\\
 \clearpage
 \subsection{侯跃南(IE, Ph.D.@CUHK)}
     \textbf{留学教育背景：}香港中文大学，信息工程(IE)，2017\\
-    \textbf{联系方式：}wechat (Hou\_yuenan\_nju)\\
+    \textbf{联系方式：}WeChat: (Hou\_yuenan\_nju)\\
     \textbf{个人主页：}linkedin (HOU Yuenan)
 
     \subsubsection*{在香港中文大学读信息工程是怎样的体验?}
@@ -919,7 +936,7 @@ AUTOMATION\\
 
 \subsection{陈孟机(ECE, Ph.D.@NUS)}
     \textbf{留学教育背景：}新加坡国立大学，电子与计算机工程系博士（under prof. Yang Hyunsoo），2015年8月入学\\
-    \textbf{联系方式：}邮箱: chen.mengji93@gmail.com
+    \textbf{联系方式：}Email: chen.mengji93@gmail.com
 
     \subsubsection*{在新加坡国立大学读电子与计算机工程系是怎样的体验?}
     我就读于新加坡国立大学电气与计算机工程系。博士生通常只有前面三个学期需要上课。除了专业课之外，还有修读英语和研究伦理与道德这样的通识教育课。国大的课程压力对博士生来讲还是比较适中的，课程既包括了本专业的核心课（比如微电子方向大家都会选择量子力学），也包括了更高级的能和研究相关的课程（比如我的研究方向是磁学，就会有专门一门讲授磁学的课程）。博士生的课程基本都是小班教学，每堂课的课容量适中。几乎每一门课都包括课堂讨论和小组展示，展示内容基本都是和个人研究领域相关，有助于快速掌握一个人对某一研究方向的了解。期末考试的题目比较困难，通常需要提前两个礼拜到一个月开始准备，即使是这样，考试的时候答不完题目也是经常出现的。总而言之，课程和考试反而是博士期间最轻松的事情了。\\
@@ -997,7 +1014,7 @@ AUTOMATION\\
     \textbf{留学教育背景：}巴黎高科项目 Télécom ParisTech, 
     专业：Data Science, Distributed Software Systems, 
     2016入学\\
-    \textbf{联系方式：}微信：15861817168
+    \textbf{联系方式：}WeChat: 15861817168
 
     \subsubsection*{在Télécom ParisTech就读是怎样的体验?}
     ParisTech 9+9 项目和南大合作其实已经有十多年，只是往年申请的学生大多来自匡院，物理，数学，生科等基础学科院系，该项目在我们院知名度并不是很高。我最初了解到巴黎高科项目是在南大交换生网站上，随后也去翻阅了其他院系前几届的飞跃手册。学长学姐们的经验确实在申请过程中给了我很大帮助。我本人选择ParisTech是因为相比于科研，我更倾向于做应用性强一些的工作。而刚好法国的工程师教育（diplôme d’ingénieur）提供了优质的课程，教育非常注重实践，课上讲授的内容基本上都是最新的和企业用得到的。另外也是因为刚好可以借此机会学习法语。ParisTech的12所学校中，Télécom，ENSTA和IOGS都适合自动化或信工的同学申请，有兴趣可以去交换生网站或者ParisTech 9+9网站了解更多信息。\\
@@ -1068,7 +1085,7 @@ AUTOMATION\\
 
 \subsection{陈东阳(ME, MS@ANU)}
     \textbf{留学教育背景：}澳洲国立大学，机电一体化，2016年入学\\
-    \textbf{联系方式：} 微信：lelouchcc911
+    \textbf{联系方式：} WeChat: lelouchcc911
 
     \subsubsection*{在Australia National University读机电一体化是怎样的体验?}
     我读的是ANU授课型master，虽说是授课型但与南大的授课完全不是一回事。一学期一共四门课，但包含lecture，tutorial，lab三种需要参加的授课形式。Lecture与本科没有太大区别，主要是老师讲课学生听。Tutorial是为了巩固学生对lecture内容而由讲师或tutor组织的小班答疑课程。Lab则是帮助学生将理论转化为实践，并为学期末的project做准备。ANU Engineering专业基本每门课最终成绩都是由lab + 期中考试 + 期末考试 + final project + assignments 计算出来的，有时候甚至期末还没考这门课就已经过了，但也要注意平时分获取不够多的情况下期末压力会非常大。
@@ -1111,7 +1128,7 @@ AUTOMATION\\
 
 
 \chapter{2018届申请总结}
-
+\thispagestyle{empty}
 \clearpage
 \section{徐旭东(IE-CV, Ph.D.@CUHK)}
     \subsection*{个人背景}
@@ -1121,8 +1138,8 @@ AUTOMATION\\
         \textbf{GRE(V+Q+AW):} 无\\
         \textbf{推荐信：} 自动化系内导师陈春林、赵佳宝强推。\\
         \textbf{科研/实习/交流:} 项目一，用深度强化学习的方法做机械臂抓取；\\ $\qquad$ 项目二，研究量子强化学习，利用量子机制加速学习过程。\\ 
-        \textbf{联系方式：} Email: forrest.tusi@gmail.com WeChat: Sheldon9710   \\
-        \textbf{homepage: } \url{https://sheldontsui.github.io}, 
+        \textbf{联系方式：} Email: forrest.tusi@gmail.com$\quad$WeChat: Sheldon9710   \\
+        \textbf{homepage: } \url{https://sheldontsui.github.io}
 
     \subsection*{申请结果}
         \textbf{Accept:} CUHK
@@ -1164,7 +1181,7 @@ AUTOMATION\\
         \textbf{Ranking:} 21/37\\
         \textbf{推荐信：} 无\\
         \textbf{科研/实习/交流:} 无\\ 
-        \textbf{联系方式：} lizhicheng26@outlook.com/ WeChat :chilk0
+        \textbf{联系方式：} Email: lizhicheng26@outlook.com$\quad$WeChat: chilk0
 
     \subsection*{申请结果}
         \textbf{AD:} 香港城市大学\\
@@ -1260,7 +1277,7 @@ AUTOMATION\\
         \textbf{GRE(V+Q+AW):} 152+170+3\\
         \textbf{推荐信：} 副教授，副教授，实习上司\\
         \textbf{科研/实习/交流:} 跟导师做的大创项目，出成果有四篇在投论文，两篇专利，实习在一家网络安全公司做SDE\\ 
-        \textbf{联系方式：} QQ:124279963
+        \textbf{联系方式：} QQ: 124279963
 
     \subsection*{申请结果}
         \textbf{AD:} CS@UVa, ECE@Cornell, JHU, UCSD, NEU, CE@NU, USC, TAMU, EE@Columbia, USC\\
@@ -1298,15 +1315,15 @@ AUTOMATION\\
 \section{张恒源(ECE-ISRC, MS@UCSD)}
     \subsection*{个人背景}
         \textbf{GPA:} overall 86.4/100, major 85.3/100\\
-        \textbf{Ranking:} 11/36(不计算重修)\\
+        \textbf{Ranking:} 11/36 (院系划定的计算绩点课程，不计算重修)\\
         \textbf{TOEFL(R/L/S/W):} 109（30/29/23/27）\\
         \textbf{GRE(V+Q+AW):} 155+170+3.0\\
         \textbf{推荐信：} 陈春林，赵佳宝和李华雄三位老师\\
         \textbf{科研/实习/交流:} 光电大赛飞行器调试、实验室飞行器项目经历，无实习交流。\\ 
-        \textbf{联系方式：} 邮箱：zhy19951213@126.com/ 微信：HenryZhangWechat
+        \textbf{联系方式：} Email: zhy19951213@126.com$\quad$WeChat: HenryZhangWechat
 
     \subsection*{申请结果}
-        \textbf{AD:} ECE@UCSD、CS@TAMU、ECE@OSU、CE@UCSC、EE@MSU、CE@ASU \\
+        \textbf{AD:} ECE@UCSD、CS@TAMU、ECE@OSU、CE@UCSC、EE@MSU、CE@ASU\\
         \textbf{Rej:} Robotics@CMU、Robotics@Umich、Robotics@Upenn、CS@Gatech、CS@USC、CS@UMass、CS@Oregon State、CE@VT\\
         \textbf{Accept:} ECE@University of California San Diego
 
@@ -1314,47 +1331,47 @@ AUTOMATION\\
         \subsubsection*{选择}
         大一的时候并没有出国的打算，想要直接就业。但在大二下鬼使神差看了一次Google I/O的keynote，被工程师们流露出的工程改变世界的情怀所点燃，突然非常想要去另一个国度去学习，与有这样精神的团队一起工作，那时候便有了出国的想法。有了想法之后慢慢地也就和身边准备出国的同学开始了交流分享信息，听过一些国外的公开课，感觉确实很喜欢一些老师的讲授方式，所以慢慢下定了决心，到大四得知有保研机会的时候也就没有犹豫了。
         \subsubsection*{GPA}
-        GPA本身是一道线，但这里面最重要的是数学、物理、电路、计算机这些硬课。然而不巧的是，我大一大二的软肋恰是这些（不务正业$\sim$）。当大三开始着手准备出国时，重修的几门数学电路给我带来了很大的负担。但是重学的时候也确实会有新的收获，比如可以换一个班选一个好的老师认真地听下去这样的经验只有对比过后才能知道有多大不同。下定决心出国后专心于课程学习和出国准备，大三的专业成绩有了很大的进步，听闻学校有时也会更注重最后两年的成绩，所以这一点可能会对之前的GPA劣势有一定的补救。\\
-        参与活动与学业的平衡一直是我没有解决的问题。大一大二时学校会有丰富的活动机会，这无疑会减少你在图书馆自习的时间，分散你的精力。但对于我来说，最要好的外专业朋友都是在那个时候通过各种活动结识，大学生活也因为这些同伴和与他们一起经历的事而无比丰富。虽然确实花费了时间，但这对于我比GPA更重要（当然，查看你成绩单的国外老师可能不这么认为$\sim$）。
+        GPA本身是最重要的一道线，虽然出国考察所有课程的平均学分绩，但这里面最重要的是数学、物理、电路、计算机这些硬课。然而不巧的是，我大一大二的软肋恰是这些（不务正业$\sim$）。当大三开始着手准备出国时，重修的几门数学电路给我带来了很大的负担，好在换个好老师重学的时候也确实会有新的收获。下定决心出国后专心于课程学习和出国准备，大三的专业成绩有了很大的进步，听闻国外学校有时也会更注重最后两年的成绩，所以这一点可能会对之前的GPA劣势有一定的补救。即使大三拉了一把，大一到大三不计算重修的保研排名依然不高，没有列在简历上，这里列出给学弟学妹们参考是因为往往大一大二的成绩会让一些同学沮丧甚至放弃了。但其实大三乃至大四上仍有机会弥补，包括尽量提高大三核心课成绩、选择一些有难度的计算机或者是数学课来提升竞争力等等。\\
+        参与活动与学业的平衡一直是我没有解决的问题。大一大二时学校会有丰富的活动机会，这无疑会减少你在图书馆自习的时间，分散你的精力。但对于我来说，最要好的外专业朋友都是在那个时候通过各种活动结识，大学生活也因为这些同伴和与他们一起经历的事而丰富起来。这对于我比GPA更重要（当然，查看你成绩单的国外老师可能不这么认为$\sim$）。
 
         \subsubsection*{科研/实习/比赛/交流}
         大二的暑假留校和同学们一起做光电大赛是第一次的比赛经历。虽然我的小组没能被选拔代表学校参赛，但是我选择继续配合其他组调试飞行器。在那个假期静下心来对着巨大的飞控工程文件试图理解它的结构和运作方式，并且将自己的理解与其他同伴分享，感受到了莫大的快乐。之后慢慢地能够看懂项目的架构并且做出一定的修改，为以后面对多文件的大项目打下了基础也增加了信心。\\
-        之后在实验室担任小组长负责一个飞行器项目的组织。我们做了相当一部分的培训工作，但是在科研方面没有深入下去，所以最后也没有什么成果。
+        之后在实验室担任小组长负责一个飞行器项目的组织。我们做了相当一部分的培训工作，但是在科研方面没有深入下去，所以最后也没有什么成果。如果希望简历上能够由能够呈现出来的东西，还是需要参加比赛获得奖项，或者是做科研到投稿乃至发表。出国交流对英语要求比申请低一些，南大也提供了很多机会，如果有出国打算的话，在大一大二早做准备可以获得很多机会，也会成为出国申请的加分项。
 
         \subsubsection*{GRE/TOEFL}
-        首先应该强调的是英语在学校考察时没那么重要，我直到在网上申请的时候才发现大多数学校对理工科生的英语没有太硬的要求，所以前期的重点还是应当在GPA和科研经历。但在之前已经为英语付出了很大的精力，写下我的经历供参考。\\
-        我个人的英语背景是二层次、旁听多一层次的英语课并且前五个学期都有选修一些其他院系英语授课的课程来保持感觉、如商院的组织管理、新传的英语新闻报道、通识课当代西方人文精神概论等。托福一战的时间很晚，预约的是大三下的4月1日。这个时候很多同学都已经考了几次了。我准备大约用一个月，没有去上培训班，准备方式就是在图书馆五楼练打字提高作文字数，早上上课前在教室练口语和晚上在自习室做TPO的阅读听力。第一次考试是100/120分，不高但是够用，加上大三下那个学期必修、重修和选修课程有七门硬课，所以就先放下了托福。学期中间和好友一起参加了一个两周的TFT口语小组，因为每天都有背诵任务，强度很高，所以有一定的帮助，但线上课程主要还是靠自己自觉，结伴上课会更有状态。\\
-        大三暑假开始准备GRE，在八月前因为暑期课程等，只零零散散背了一千个单词，是小伙伴推荐的APP墨墨背单词，八月份基本按照每天100个新增词的速度背要你命三千，结合词根词缀记忆词典记忆，但是由于速度过慢，到8月25日考试前都没怎么做过阅读和verbal的实战训练。所以一战考出来155的verbal其实是非常侥幸的。数学部分做了网上的一些难题集，把比较坑的点过一下170没什么问题。作文实在没有时间准备，所以只有3.0。GRE的325对于我的条件和期望的学校算是够用的分数，所以也就没有再进行准备。TOEFL在9月17日考的第二次中得到了109分，主要是在GRE备战之后因为单词量的提升，阅读变得轻松了一些。作文随着学会了盲打（真的是准备TOEFL练出来的！推荐:\url{https://www.keybr.com}）字数上去了成绩也有所提高。\\
-        英语准备总结：根据自己的起点进行准备，报班不是必须的。尽早开始、尽早报名（如果不是那么壕的话交了1600+的报名费之后你会认真的）、先GRE后托福对阅读有帮助、但是口语基础不好的话要尽早开始训练，可以组团训练（缅怀一下口语自救小队$\sim$）。
+        首先应该强调的是英语在学校考察时没那么重要，我直到英语全部考完，在网上申请的时候才发现大多数学校对理工科生的英语没有太硬的要求，所以前期的重点还是应当在GPA和科研经历。但在之前已经为英语付出了很大的精力，写下我的经历供参考。\\
+        我个人的英语背景是二层次、旁听过一层次的英语课并且前五个学期都有选修一些其他院系英语授课的课程来保持感觉、如商院的组织管理、新传的英语新闻报道、通识课当代西方人文精神概论等。托福一战的时间很晚，预约的是大三下的4月1日。这个时候很多同学都已经考了几次了。准备大约用了一个月，没有去上培训班，准备方式就是在图书馆五楼练打字提高作文字数，早上上课前在教室练口语和晚上在自习室做TPO的阅读听力。第一次考试是100/120分，不高但是够用，加上大三下那个学期必修、重修和选修课程有七门硬课，所以就先放下了托福。学期中间和好友一起参加了一个两周的TFT口语小组，因为每天都有背诵任务，强度很高，所以有一定的帮助，但线上课程主要还是靠自己自觉，结伴上课可以互相打气。\\
+        大三暑假开始准备GRE，在八月前只零零散散背了一千个单词，用的是小伙伴推荐的APP墨墨背单词，八月份在APP上按照每天100个新增词的速度背要你命三千，结合词根词缀记忆词典记忆，但是由于速度过慢，到8月25日考试前都没怎么做过阅读和verbal的实战训练。所以一战考出来155的verbal其实是非常侥幸的。数学部分做了网上的一些难题集，把比较坑的点过一下。作文实在没有时间准备，所以只有3.0。GRE的325对于我的条件和期望的学校算是够用的分数，所以也就没有再进行准备。TOEFL在9月17日考的第二次中得到了109分，主要是在GRE备战之后因为单词量的提升，阅读变得轻松了一些。作文随着学会了盲打（真的是准备TOEFL练出来的！推荐:\url{https://www.keybr.com}），字数上去了成绩也有所提高。\\
+        英语准备总结：根据自己的起点进行准备；报班不是必须的；尽早开始、尽早报名（如果不是那么壕的话交了1600+的报名费之后你会认真的）；先GRE后托福对阅读有帮助，但是口语基础不好的话要尽早开始训练；可以组团训练（缅怀一下口语自救小队$\sim$）。
 
     \subsection*{申请过程}
         \subsubsection*{选校}
         选校工作主要是对着自己感兴趣的方向找学校。我的兴趣方向是无人驾驶，这个可以从Robotics、CS、EE的角度做。所以我申请的方向也就是这些。一方面我在一亩三分地里面找以前申请Robotics相关学校的同学给出的选校信息。另一方面是在Google上直接搜索相关的学校，还有就是直接在US News上找对应专业的排名筛选。\\
         结合这三者确定一个大致的学校范围之后，开始逐个查看这些学校官网给出的相关实验室的介绍和研究生项目介绍进行筛选。并且将自己选择的学校按照档次进行划分来平衡选择（冲刺、主申、保底）。\\
-        对于自己的评估可以参考一亩三分地往年的申请汇报、可以对比申请人和自己的条件、看得多了也就能猜得差不多。由于很多人这个时候基本都在担心自己会没学上，论坛上也常有焦虑传播，所以容易低估自己。个人感觉是保底校不要太多，有的你申请到了也不会看一眼的。冲刺可以多一些。不留遗憾。\\
-        时间安排上很多学校在12月15日截止，我的建议是如果要细致考察，那么选校要在大四的暑假准备。但是即使晚了也不用太担心，截止前两周也是足够的。\\
-        对于想要学习Robotics这个方向的同学，由于这个领域的交叉比较强，所以可能在不同学校中院系设置不同。Robotics学院开设学校比较少，很多是在ECE或者是CS的一个分支下，所以对于目标学校的CS、ECE都要关注一下，在官网看看他的实验室设置。我的兴趣方向是无人驾驶，自动化的课程设置给我们打下了软硬件的基础，加上大三大四我也选修了一些计算机专业的课程，所以CS、EE的课程基本都可以接受。所以我选择的范围是有车辆机器人相关实验室的Robotics、CS、EE。
+        对于自己的评估可以参考一亩三分地往年的申请汇报、可以对比申请人和自己的条件、看得多了也就能猜得差不多。由于大家这个时候基本都在担心自己会没学上，论坛上也常有焦虑传播，所以容易低估自己。个人感觉是保底校不要太多，有的你申请到了也不会看一眼的。冲刺可以多一些。不留遗憾。\\
+        时间安排上很多学校在12月15日截止，我的建议是如果要细致考察，那么选校要在大四的暑假准备。但是即使晚了也不用太担心，截止前两周也是可以极限操作的。\\
+        对于想要学习Robotics这个方向的同学，由于这个领域的交叉比较强，所以可能在不同学校中院系设置不同。Robotics学院开设学校比较少，很多是在ECE或者是CS的一个分支下，所以对于目标学校的CS、ECE和ME都要关注一下，在官网看看他的实验室设置。我的兴趣方向是无人驾驶，自动化的课程设置给我们打下了软硬件的基础，加上大三大四我也选修了一些计算机专业的课程，所以CS、EE的课程基本都可以接受。所以我选择的范围是有车辆机器人相关实验室的Robotics、CS、EE。
         
         \subsubsection*{文书}
-        写Statement of Purpose是对我帮助最大的环节，因为需要回答自己必须要面对的问题：我究竟想要什么？这个学校的项目将如何帮我达成？为什么这个项目应当选择培养我？当你能够对自己回答清楚这些问题的时候，其实文书也就完成了。大约在图书馆用了两周的时间写文书，修改到不想再修改就打印出来自己读一读或者请同学看一看然后继续改。最后提交文书前针对每个学校的具体要求修改结构，并且在最后一段加上了感兴趣实验室和研究方向。
+        写Statement of Purpose是对我帮助最大的环节，因为需要回答自己必须要面对的问题：我究竟想要什么？这个学校的项目将如何帮我达成？为什么这个项目应当选择培养我？当你能够对自己回答清楚这些问题的时候，其实文书也就完成了。大约在图书馆用了两周的时间写文书，修改到不想再修改就打印出来自己读一读或者请同学看一看然后继续改。最后提交文书前针对每个学校的具体要求修改结构，并且在最后一段加上了感兴趣实验室和研究方向。至今也不能对这几个问题有很好的答案，但这个思考的过程很是受用，也许对他们的思考会相伴一生。
 
         \subsubsection*{推荐信}
-        一般而言实验室的工作经历是最有帮助的，但我大三的精力分配主要在课程上提高GPA，在实验室没有什么成果，所以并不能够用成果支撑推荐信。但是因为一直在当团队负责人的工作，所以和导师赵佳宝老师沟通较多，得到了赵老师的支持。陈春林老师和李华雄老师在我发邮件询问后给了热心的回复。十几所学校的申请对于老师来说工作量是极大的，他们在繁忙的教学科研之余抽出时间实属不易。我们院系虽然老师不多，但老师们都希望帮助自己栽培的学生一把，推他们到更高的地方，非常感激。
+        一般而言实验室的工作经历是最有帮助的，但同时还有GPA硬伤的我将大三的精力分配主要在课程上，在实验室时间不多，所以并不能够用成果支撑推荐信。但是因为一直在当团队负责人的工作，所以和导师赵佳宝老师沟通较多，得到了赵老师的支持。陈春林老师和李华雄老师在我发邮件询问后给了热心的回复。十几所学校的申请对于老师来说工作量是极大的，他们在繁忙的教学科研之余抽出时间实属不易。我们院系虽然老师不多，但老师们都希望帮助自己栽培的学生一把，推他们到更高的地方，非常感激。
 
         \subsubsection*{网申}
         确定学校准备好材料后就是网申。这一部分主要是细心地在ddl之前完成网上填表就好。我把各个学校的网申放到一起来做，所以真正在填写的时间不长，主要还是对着要求修改文书。预计需要一到两周。有一些常用信息可以先用excel表格整理好然后再填写。如果使用浏览器自动补全表单一定要记得核查！网申阶段一直用excel表格管理每个学校的进度和账号密码以及一些特殊要求，对自己梳理很有帮助。
 
         \subsubsection*{等待结果}
-        由于从一亩三分地分析得出的定位确实比较准确，收到了冲刺校们的rej和保底校们的AD，有了第一个AD后，确实是没怎么关注过这个保底校，直到等到Ohio State University的ECE才开始考虑。这个时候收到学校要求3.月15答复，但很多结果还没出，所以在同伴的建议下写了封很诚恳的信表明自己很多申请结果还没有出，难以抉择的处境，得到了延期答复的准许。所以鼓励大家面对问题要勇敢地争取$\sim$在三月下旬收到TAMU的CS录取，其实已经很满意了，进一步了解情况，正准备去的时候，三月底得到了UCSD的ECE喜欢的track的录取，也就果断决定了。我等待录取的过程其实很幸运，恰好是一个结果比一个满意。身边也有同伴奋斗到五月份才收到梦校的录取，非常焦灼，真的很不容易，大家一定要保持良好的心态面对任何可能的结果。
+        由于从一亩三分地分析得出的定位确实比较准确，收到了冲刺校们的rej和保底校们的AD，有了第一个AD后，确实是没怎么关注过这个保底校，直到等到Ohio State University的ECE才开始考虑。这个时候收到学校要求3月15日答复，但很多结果还没出，所以在同伴的建议下写了封很诚恳的信表明自己很多申请结果还没有出，难以抉择的处境，得到了延期答复的准许。所以鼓励大家面对问题要勇敢地争取$\sim$在三月下旬收到TAMU的CS录取，了解了下他们Robotics方向挺好，其实已经很满意了，进一步了解情况，正准备去的时候，三月底得到了UCSD的ECE喜欢的track的录取，也就果断决定了。我等待录取的过程其实很幸运，恰好是一个结果比一个满意。身边也有同伴奋斗到五月份才收到梦校的录取，非常焦灼，真的很不容易，大家一定要保持良好的心态面对任何可能的结果。
 
         \subsubsection*{项目介绍}
         首先申明，由于还没有去学校，以下内容只是我所收集到的信息，不保证准确性。\\
         UCSD工科很好，ECE和CS在US News排名都在 10-20 之间。ECE分为很多track，我选择的是ISRC（Intelligent system, Robotics, Control）是和自动化比较对口的方向。根据官网的信息，我们的项目是比较偏理论的，适合于有研究志向的人为了Ph.D.做准备。UCSD的学制是quarter制，一年一般上三个quarter，每个十一周左右，所以会节奏很快，好处是暑假很长。根据学长的介绍，一般大家会需要5个quarter完成所有学分的修读，也就是一年半。\\
-        ISRC方向属于ECE中比较偏软的方向，会有很多想要转码的小伙伴。由于Robotics理论性较强，想要深入研究还是建议转Ph.D.。现在（mark:2018）人工智能比较火，所以这个方向会持续有更多人加入。我们这级中国学生，这个方向已经有三十余人，整个ECE的中国学生两百人左右，所以项目的规模还是挺大的。\\
+        ISRC方向属于ECE中比较偏软的方向，会有很多想要转码的小伙伴。由于Robotics理论性较强，想要深入研究还是建议转Ph.D.。现在\footnote{2018年是这样，不知道你看的时候还是不是$\sim$}人工智能比较火，所以这个方向会持续有更多人加入。我们这级中国学生，这个方向已经有四十余人，整个ECE的中国学生两百人左右，所以项目的规模还是挺大的。\\
         UCSD气候宜人、生活环境好、学校周边比较安全，大概是个适合长居读Ph.D.的好地方 $\sim$
 
     \subsection*{总结}
-        申请的过程就是功到自然成，文书推荐信网申等等工作只是对自己前几年大学学习生活的呈现。如果没有前期良好的铺垫，面对无法改变的GPA和贫乏的经历，纵有万丈豪情，也难以在竞争中超过其他申请者。至于提交之后获得的结果，AD还是Rej，接受就好。
+        功到自然成。文书推荐信网申等等工作只是对自己前几年大学学习生活的呈现。如果没有前期良好的铺垫，面对无法改变的GPA和贫乏的经历，纵有万丈豪情，也难以在竞争中超过其他申请者。如果你还有时间，好好把握。至于提交之后获得的结果，AD还是Rej，接受就好。祝福！
 
 \clearpage
 \section{李睿(ECE, MS@Gatech)}
@@ -1365,7 +1382,7 @@ AUTOMATION\\
         \textbf{GRE(V+Q+AW):} 160+170+4.0\\
         \textbf{推荐信：} 宋跃江老师一封，李密老师一封，Umass AP一封，电子学院施院长一封，清华大学教授一封。\\
         \textbf{科研/实习/交流:} 科研方面，跟宋老师那边做微腔，然后有一篇文章投了没录（跪，不过反正也是挂名；跟李密老师做的激光通信那一块，投了一篇IEEE的会议，自己的通讯作者；什么创新创业计划啦etc；实习方面，大一暑假在一个行业内的国企水水地实习过，不过也写上去了；交流方面，大二暑假去了APRU ULP，是在墨西哥的蒙特雷科技大学举办的一个summer camp，大三下在UC Berkeley交换。还有一些会议啊吧啦吧啦奖什么的也都水水地写上去了。\\ 
-        \textbf{联系方式：} wechat: ripray
+        \textbf{联系方式：} WeChat: ripray
 
     \subsection*{申请结果}
         \textbf{AD:} Gatech, UW-Seattle, Columbia, NYU, UCI, GWU\\
@@ -1415,7 +1432,7 @@ AUTOMATION\\
         \textbf{IELTS(R/L/S/W): }7.0 (8.5/7.5/6/6)\\
         \textbf{推荐信：} NONE\\
         \textbf{科研/实习/交流:} NONE\\ 
-        \textbf{联系方式：} 573639073@qq.com  Wechat：accelerator777
+        \textbf{联系方式：} Email: 573639073@qq.com$\quad$WeChat: accelerator777
 
     \subsection*{申请结果}
         \textbf{AD:} UNSW, UQ\\
@@ -1450,9 +1467,11 @@ AUTOMATION\\
     
 
 \chapter{致谢}
+
 手册结构设计参考了计算机系2015年的飞跃手册，在此表达感谢。\\
 
 在手册筹备阶段夏娟辅导员提供了很多支持，特别鸣谢。\\
 
-再次感谢学长学姐们在繁忙的工作科研学习之余认真地为我们分享自己走过的路上的彩虹和风雨。
+再次感谢学长学姐们在繁忙的工作、科研、学习中抽空为我们分享来路的彩虹和风雨。
+
 \end{document}
