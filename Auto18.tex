@@ -1,6 +1,7 @@
 \documentclass[a4paper,UTF8]{book}
 \usepackage{ctex}       % necessary for chinese
-\setCJKmainfont[BoldFont=SimHei]{STSong} %设置中文默认字体[AutoFakeBold=true]
+\setCJKmainfont[BoldFont=KaiTi]{STSong} %设置中文默认字体
+\setmainfont{Times New Roman}
 \usepackage[margin=1.25in]{geometry}
 \usepackage{color}
 
@@ -28,25 +29,30 @@
 % To improve spacing on titlepages
 \newcommand{\nbtitlestretch}{\spaceskip0.8em}
 \pagestyle{empty}
+% \thispagestyle{empty}%目录页不显示页码
 \begin{center}
 \bfseries
-\nbvspace[1]
+\nbvspace[0.8]
 \Huge
 {\nbtitlestretch
-\fontsize{63pt}{18pt}\selectfont
+\fontsize{70pt}{18pt}\selectfont
+{% \fontspec{Arial}
 NJU SME\\
 \nbvspace[0.1]
-\fontsize{40pt}{30pt}\selectfont
+\fontsize{44pt}{35pt}\selectfont
 AUTOMATION\\
-\nbvspace[0.1]
+}
+\nbvspace[0.23]
 % 18\\
 % \nbvspace[0.1]
-\fontsize{40pt}{18pt}\selectfont
-18飞跃手册}
+\fontsize{77pt}{48pt}\selectfont
+{\CJKfontspec{方正清刻本悦宋简体}
+飞 跃 手 册
+}}
 
 \nbvspace[0.5]
-\fontsize{14pt}{18pt}\selectfont
-{\CJKfontspec{KaiTi}--- 谨以此册献给那些曾经帮助我们一路走来的人们}
+ \fontsize{20pt}{18pt}\selectfont
+{\fontspec{Times New Roman} 18Fliers}
 
 \nbvspace[1]
 
@@ -58,28 +64,36 @@ AUTOMATION\\
 \end{center}
 
 
+\newpage
 
+\thispagestyle{empty}%目录页不显示页码
 \tableofcontents %目录
-\pagestyle{fancy}
+\pagestyle{empty}
+\thispagestyle{empty}%目录页不显示页码
 
+\newpage
+\pagestyle{fancy}
 \fancyhf{}
 \fancyhead[EL,OR]{\subsectionmark}
 \fancyfoot[EC,OC]{\thepage}
 \fancyhead[ER,OL]{\nouppercase{\leftmark}-\nouppercase{\rightmark}}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\setcounter{page}{1}%从下面开始编页码
+
 \chapter{前言}
 
 {\begin{spacing}{1.5}
 \fontsize{12pt}{12pt}\selectfont
+{\CJKfontspec{KaiTi}
 18飞跃手册分为两个部分，留学经历分享和18届申请总结。\\
 
 第一部分中非常荣幸能够邀请到已经在国外经历了一段留学时光的学长学姐们和我们分享留学经验。学长学姐们介绍了自己的学校专业的就读体验，科研实习经历和未来的打算。并对留学各地的对比，自动化类（自动化、光电信息工程）的留学状况和他们就读专业的前景发表了自己的看法。看看和我们同样从南大工管出发去往世界各地，带着不同想法，经历过各式各样生活的学长学姐们写下的肺腑之言，也许对于还在犹豫是否要出国，下定决心了还没有方向，或者是在准备中仍有迷茫的学弟学妹们有一些帮助。\\
 
-第二部分是18飞友们对刚刚过去的申请季的总结。格式参考了一亩三分地的定位板块并给出了申请结果，为学弟学妹们提供定位参考。申请准备部分是大一到大三期间为了出国需要做的准备，包括课程学期、科研实习交换和英语准备。申请过程部分对选校，文书，推荐信，网申这些申请中重要的部分均有所涉及。\\
+第二部分是18飞友们对刚刚过去的申请季的总结。格式参考了一亩三分地的定位板块并给出了申请结果，为学弟学妹们提供定位参考。申请准备部分是大一到大三期间为了出国需要做的准备，包括课程学习、科研实习交换和英语准备。申请过程部分对选校，文书，推荐信，网申这些申请中重要的部分均有所涉及。\\
 
-我们得到了来自小百合传承的飞跃手册的帮助，得到了一亩三分地的分享，得到了学长学姐的指引，也想用这样的方式来传递这种善意。
-
+我们得到了来自小百合传承的飞跃手册的帮助，得到了一亩三分地的分享，得到了学长学姐的指引，也想用这样的方式来传递这种善意。谨以此册献给那些曾经帮助我们一路走来的人们。
+}
 \end{spacing}
 }
 
@@ -170,7 +184,7 @@ AUTOMATION\\
 
 
 \clearpage
-\subsection{岳翔宇(EE, MS@Stanford, EECS, Ph.D.@UCB)}
+\subsection{岳翔宇(EE, MS@Stanford; EECS, Ph.D.@UCB)}
     \textbf{留学教育背景：}Stanford EE MS, 2014，UC Berkeley EECS Ph.D. 2016\\
     \textbf{联系方式：}微信：yuexiangyu618，邮箱: xyyue@eecs.berkeley.edu
 
@@ -1438,5 +1452,7 @@ AUTOMATION\\
 \chapter{致谢}
 手册结构设计参考了计算机系2015年的飞跃手册，在此表达感谢。\\
 
-手册制作由练仕琪发起，张恒源组织。李睿参与设计问卷。徐旭东参与初稿审阅。从开始分发到制作完成历时约一个月。夏娟辅导员提供了很多支持，特别鸣谢。
+在手册筹备阶段夏娟辅导员提供了很多支持，特别鸣谢。\\
+
+再次感谢学长学姐们在繁忙的工作科研学习之余认真地为我们分享自己走过的路上的彩虹和风雨。
 \end{document}
